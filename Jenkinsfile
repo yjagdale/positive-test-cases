@@ -11,7 +11,7 @@ pipeline {
         
         stage ('Deploy docker Image') {
             steps {
-                sh 'sudo docker-compose -d up'
+                sh 'sudo docker-compose up -d'
             }
         }
         
@@ -26,14 +26,6 @@ pipeline {
 
             steps {
                   sh 'mvn test'
-            }
-        }
-
-
-        stage ('Cluster Start') {
-
-            steps {
-               sh 'mvn fabric8:cluster-start'
             }
         }
     }
