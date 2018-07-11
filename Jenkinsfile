@@ -25,7 +25,7 @@ pipeline {
     }
     post {
       success {
-            archive "target/**/*"
+            build  'stop docker'
       }
     }
 }
