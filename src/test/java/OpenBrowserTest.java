@@ -38,7 +38,11 @@ public class OpenBrowserTest {
     public void navigateToBrowser() throws InterruptedException {
         Thread.sleep(5000);
         if(URL != null) {
-            browser.get(URL);
+            for (int i = 0; i < 10; i++) {
+                browser.get(URL);
+                Thread.sleep(i * 1000);
+            }
+
         } else {
             System.out.println("URL is null");
             Thread.sleep(3000);
