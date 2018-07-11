@@ -15,14 +15,19 @@ import java.net.URL;
 public class OpenBrowserTest {
 
     WebDriver browser;
+    String URL = "https://mail.google.com/"; //System.getenv("URL");
+    String HUB  = "http://10.67.141.213"; //System.getenv("HUB");
+    String ON_GRID = "true";// System.getenv("ON_GRID");
+
+
     @BeforeTest
     public void beforeTest() throws MalformedURLException {
 
-        System.out.println("HUB:-" + System.getenv("HUB"));
-        System.out.println("ON_GRID:-" + System.getenv("ON_GRID"));
-        System.out.println("URL:-" + System.getenv("URL"));
-        if(System.getenv("ON_GRID") != null) {
-            browser = new RemoteWebDriver(new URL( System.getenv("HUB")+ "/wd/hub"), new ChromeOptions());
+        System.out.println("HUB:-" + HUB);
+        System.out.println("ON_GRID:-" + ON_GRID);
+        System.out.println("URL:-" + URL);
+        if(ON_GRID != null) {
+            browser = new RemoteWebDriver(new URL( HUB+ "/wd/hub"), new ChromeOptions());
         } else {
             browser = new ChromeDriver();
             ChromeDriverManager.getInstance().setup();
@@ -32,8 +37,8 @@ public class OpenBrowserTest {
     @Test
     public void navigateToBrowser() throws InterruptedException {
         Thread.sleep(5000);
-        if(System.getenv("URL") != null) {
-            browser.get(System.getenv("URL"));
+        if(URL != null) {
+            browser.get(URL);
         } else {
             System.out.println("URL is null");
             Thread.sleep(3000);
