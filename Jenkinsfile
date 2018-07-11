@@ -9,23 +9,16 @@ pipeline {
     
     stages {
 
-        stage ('Build Application') {
-
-            steps {
-                    sh 'mvn clean compile'
-            }
-        }
-
         stage ('Execute Selenium') {
 
             steps {
-                  sh 'mvn test'
+                  sh 'mvn clean install'
             }
         }
     }
     post {
       success {
-            build  'stop docker'
+            echo  'stop docker'
       }
     }
 }
