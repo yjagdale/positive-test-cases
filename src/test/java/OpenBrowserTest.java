@@ -2,6 +2,7 @@
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
@@ -16,8 +17,12 @@ public class OpenBrowserTest {
     WebDriver browser;
     @BeforeTest
     public void beforeTest() throws MalformedURLException {
+
+        System.out.println("HUB:-" + System.getenv("HUB"));
+        System.out.println("ON_GRID:-" + System.getenv("ON_GRID"));
+        System.out.println("URL:-" + System.getenv("URL"));
         if(System.getenv("ON_GRID") != null) {
-            browser = new RemoteWebDriver(new URL( System.getenv("HUB")+ "/wd/hub"), DesiredCapabilities.chrome());
+            browser = new RemoteWebDriver(new URL( System.getenv("HUB")+ "/wd/hub"), new ChromeOptions());
         } else {
             browser = new ChromeDriver();
             ChromeDriverManager.getInstance().setup();
