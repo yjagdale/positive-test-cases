@@ -31,7 +31,7 @@ public class OpenBrowserTest {
 
     @Test
     public void navigateToBrowser() throws InterruptedException {
-
+        Thread.sleep(5000);
         if(System.getenv("URL") != null) {
             browser.get(System.getenv("URL"));
         } else {

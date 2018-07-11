@@ -3,8 +3,8 @@ pipeline {
 
     parameters {
         booleanParam(defaultValue: true, description: '', name: 'ON_GRID')
-        string(defaultValue: "http://localhost:4444/wd/hub", description: '', name: 'HUB')
-        string(defaultValue: "http://localhost:4444/", description: '', name: 'URL')
+        string(defaultValue: "http://localhost/wd/hub", description: '', name: 'HUB')
+        string(defaultValue: "https://mail.google.com/", description: '', name: 'URL')
     }
     
     stages {
