@@ -27,7 +27,7 @@ public class OpenBrowserTest {
         System.out.println("ON_GRID:-" + ON_GRID);
         System.out.println("URL:-" + URL);
         if(ON_GRID != null) {
-            System.out.println("OPENINING BROWSER");
+            System.out.println("OPENING BROWSER");
             browser = new RemoteWebDriver(new URL( HUB+ "/wd/hub"), new ChromeOptions());
         } else {
             browser = new ChromeDriver();
