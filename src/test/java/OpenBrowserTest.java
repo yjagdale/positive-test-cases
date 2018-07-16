@@ -16,7 +16,7 @@ public class OpenBrowserTest {
 
     WebDriver browser;
     String URL = "https://mail.google.com/"; //System.getenv("URL");
-    String HUB  = "http://10.67.141.213"; //System.getenv("HUB");
+    String HUB  = System.getenv("HUB");
     String ON_GRID = "true";// System.getenv("ON_GRID");
 
 
